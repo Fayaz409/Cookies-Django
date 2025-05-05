@@ -37,3 +37,15 @@ def delete_cookie(request,cookie_name):
 def all_sessions(request):
     session_data = request.session.items()
     return render(request,'cookiesapp/sessions.html',{'sessions':session_data})
+
+def add_session(request):
+    if request.method == 'POST':
+        session_name = request.POST.get('session_name')
+        session_value= request.POST.get('session_value')
+
+        request.session[session_name]=session_value
+
+        response = HttpResponseRedirect(reverse('all-sessions'))
+
+        return response
+    return JsonResponse({'message':'Invalid Request Method'})
