@@ -17,3 +17,10 @@ def add_cookie(request):
         response.set_cookie(cookie_name,cookie_value,120)
         return response
     return JsonResponse({'message':'Invalid request Method'})
+
+def clear_cookies(request):
+    response = HttpResponseRedirect(reverse('all-cookies'))
+
+    for key in request.COOKIES:
+        response.delete_cookie(key)
+    return response
