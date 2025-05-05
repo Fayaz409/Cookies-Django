@@ -26,6 +26,16 @@
             <tr>
                 <td>{{key}}</td>
                 <td>{{value}}</td>
+                <td>
+                    <a href="{%url 'read-cookie' key%}">Read</a> |
+                    <form action="" method="post">
+                        {%csrf_token%}
+                        <button>
+                            <a href="{%url 'delete-cookie' key%}">Delete</a>
+                        </button>
+                    </form>
+                </td>
+
 
             </tr>
             <br>
