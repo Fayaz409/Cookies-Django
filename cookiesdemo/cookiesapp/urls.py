@@ -8,5 +8,6 @@ urlpatterns =[
     path('read-cookie/<str:cookie_name>',views.read_cookies,name='read-cookie'),
     path('delete-cookie/<str:cookie_name>',views.delete_cookie,name='delete-cookie'),
     path('all-sessions/',views.all_sessions,name='all-sessions'),
-    
+    path('create-session/',views.add_session,name='add-session'),
+
 ]
