@@ -33,3 +33,7 @@ def delete_cookie(request,cookie_name):
     response = HttpResponseRedirect(reverse('all-cookies'))
     response.delete_cookie(cookie_name)
     return response
+
+def all_sessions(request):
+    session_data = request.session.items()
+    return render(request,'cookiesapp/sessions.html',{'sessions':session_data})
