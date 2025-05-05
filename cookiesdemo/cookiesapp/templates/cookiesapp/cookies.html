@@ -32,5 +32,20 @@
                 {%endfor%}
         </tbody>
     </table>
+    <h2>Add Cookie</h2>
+    <form method="post" action="{% url 'add-cookie'%}" id="addCookieForm">
+        {%csrf_token%}
+        <div class="form-group">
+            <label for="cookie_name">Cookie Name</label>
+            <input type="text" class="form-control" name="cookie_name" required>
+            
+        </div>
+        <div class="form-group">
+            <label for="cookie_value">Cookie Value</label>
+            <input type="text" class="from-group" name="cookie_value" required>
+        </div>
+
+   <button type="submit">Add Cookie</button>
+    </form>
 </body>
 </html>
